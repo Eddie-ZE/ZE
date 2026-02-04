@@ -265,22 +265,30 @@ function generateReport() {
   const report = document.getElementById('report');
   const content = document.getElementById('reportContent');
 
+  const v = (id) => document.getElementById(id)?.value || '—';
+
   content.innerHTML = `
-  <strong>Row A:</strong> Installer and system configuration. Heater size confirms installed wattage, while extra charge and clock calibration affect how aggressively the heater charges overnight.<br><br>
+  <h3>Summary of Entered Data</h3>
+  <ul>
+    <li><strong>Row A:</strong> Software Calc: ${v('a1')}, Heater Size: ${v('a2')}, Extra Charge: ${v('a3')}, Clock Cal: ${v('a4')}</li>
+    <li><strong>Row B:</strong> Core charge last night: ${v('b1')} minutes</li>
+    <li><strong>Row C:</strong> Current room temp: ${v('c1')} °C, Room temp at 23:59: ${v('c2')} °C</li>
+    <li><strong>Row D:</strong> Comfort ON hours programmed: ${v('d1')} hours</li>
+    <li><strong>Row E:</strong> Current room temp: ${v('e1')} °C, Setpoint at 23:59: ${v('e2')} °C</li>
+    <li><strong>Row F:</strong> Current core temp: ${v('f1')}, Core temp at 23:59: ${v('f2')}</li>
+    <li><strong>Row H:</strong> Core charge 3 nights ago: ${v('h1')}, 2 nights ago: ${v('h2')}</li>
+  </ul>
 
-  <strong>Row B:</strong> Total minutes the heater charged last night. Low values suggest mild weather or reduced demand; high values indicate higher heat requirement.<br><br>
+  <h3>What This Means</h3>
+  <p><strong>Charging behaviour:</strong> The heater charged for <strong>${v('b1')} minutes</strong> last night. Comparing this with historic values (${v('h1')}, ${v('h2')}) helps identify whether demand is increasing or if the heater is being limited.</p>
 
-  <strong>Row C:</strong> Comparison between current room temperature and the temperature recorded at 11:59 pm. A large drop overnight can indicate heat loss or under-charging.<br><br>
+  <p><strong>Heat retention:</strong> Room temperature dropped from <strong>${v('c2')} °C</strong> at 23:59 to <strong>${v('c1')} °C</strong>. A large drop overnight can point to high heat loss or insufficient stored heat.</p>
 
-  <strong>Row D:</strong> Total comfort ON hours programmed for the next day. Exceeding 14 hours usually indicates the heater is compensating for insufficient stored heat.<br><br>
+  <p><strong>Comfort usage:</strong> ${v('d1')} comfort hours are programmed. Values above 14 hours usually mean the heater is compensating with direct output rather than stored heat.</p>
 
-  <strong>Row E:</strong> Active room temperature control. Shows whether the heater is maintaining set temperature or relying heavily on direct output.<br><br>
+  <p><strong>Core performance:</strong> Core temperature fell from <strong>${v('f2')}</strong> to <strong>${v('f1')}</strong> during the day, showing how much stored energy was actually used.</p>
 
-  <strong>Row F:</strong> Core temperature status. Comparing current core temp with the 11:59 pm value shows how much stored heat has been used during the day.<br><br>
-
-  <strong>Row G:</strong> Not used on QM models.<br><br>
-
-  <strong>Row H:</strong> Historical core charge values from previous nights. Useful for spotting trends such as consistent under-charging or weather-related demand changes.
+  <p><strong>Overall:</strong> By combining charging time, room temperature change, and comfort usage, you can judge whether the heater is correctly sized, correctly programmed, or struggling due to building heat loss.</p>
   `;
 
   report.style.display = 'block';
