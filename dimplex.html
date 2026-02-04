@@ -129,17 +129,19 @@
       <div class="inputs">
         <div>
           <label>Digit 1 – Software Calculator</label>
-          <input type="number" id="a1" />="a1" />
+          <input type="number" id="a1" />
         </div>
         <div>
-  <label>Digit 2 – Heater Size 1=500W, 2=700W, 3=1000W, 4=1250W, 5=1500W</label>
-          <input type="number" id="a2" />mber" id="a2" />
+          <label>Digit 2 – Heater Size (5 = 1500W)</label>
+          <input type="number" id="a2" />
         </div>
-        <label>Digit 3 – Extra Charge (Installer Setting)</label>
-          <input type="number" id="a3" />type="number" id="a3" />
+        <div>
+          <label>Digit 3 – Extra Charge (Installer Setting)</label>
+          <input type="number" id="a3" />
         </div>
-<label>Digit 4 – Clock Calibration</label>
-          <input type="number" id="a4" /> <input type="number" id="a4" />
+        <div>
+          <label>Digit 4 – Clock Calibration</label>
+          <input type="number" id="a4" />
         </div>
       </div>
     </div>
@@ -147,8 +149,10 @@
     <!-- Row B -->
     <div class="row">
       <h2>Row B – Core Charge Time</h2>
-      <div class="i<label>Core Charge Time Last Night (minutes)</label>
-          <input type="number" id="b1" />         <input type="number" id="b1" />
+      <div class="inputs">
+        <div>
+          <label>Core Charge Time Last Night (minutes)</label>
+          <input type="number" id="b1" />
         </div>
       </div>
     </div>
@@ -156,32 +160,13 @@
     <!-- Row C -->
     <div class="row">
       <h2>Row C – Room Temperature History</h2>
-      <div <label>Digit 1 – Current Room Temperature (°C)</label>
-          <input type="number" step="0.1" id="e1" />="c1" />      <input type="number" step="0.1" id<label>Digit 2 – Room Temp at 11:59 pm (°C)</label>
-          <input type="number" step="0.1" id="c2" />°C)</label>
-          <input type="number" step="0.1" id="c2" />
-        </div>
-      </div>
-    </div>
-
-    <!-- Row D -->
-    <div class="row">
-      <h2>Row D – Comfort ON Hours (Ne<label>Total Comfort ON Hours Programmed</label>
-          <input type="number" id="d1" />rt ON Hours Programmed</label>
-          <input type="number" id="d1" />
-          <div class="warning">Recommended maximum: 14 hours</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Row E -->
-    <div class="row">
-      <h2>Row E – Room Temperature Setpoints</h2>
       <div class="inputs">
         <div>
           <label>Digit 1 – Current Room Temperature (°C)</label>
-          <i<label>Digit 2 – Room Temp Set at 11:59 pm (°C)</label>
-          <input type="number" step="0.1" id="e2" />et at 11:59 pm (°C)</label>
+          <input type="number" step="0.1" id="e1" />
+        </div>
+        <div>
+          <label>Digit 2 – Room Temp Set at 11:59 pm (°C)</label>
           <input type="number" step="0.1" id="e2" />
         </div>
       </div>
@@ -189,9 +174,15 @@
 
     <!-- Row F -->
     <div class="row">
-      <h2>R<label>Digit 1 – Current Core Temperature</label>
-          <input type="number" id="f1" />bel>Digit 1 – Current Core Temperature</<label>Digit 2 – Core Temp at 11:59 pm</label>
-          <input        <label>Digit 2 – Core Temp at 11:
+      <h2>Row F – Core Temperature</h2>
+      <div class="inputs">
+        <div>
+          <label>Digit 1 – Current Core Temperature</label>
+          <input type="number" id="f1" />
+        </div>
+        <div>
+          <label>Digit 2 – Core Temp at 11:59 pm</label>
+          <input type="number" id="f2" />
         </div>
       </div>
     </div>
@@ -207,14 +198,19 @@
       <h2>Row H – Historic Core Charge</h2>
       <div class="inputs">
         <div>
-          <label>Digit 1 – Core Charge (Three Nights Ago)</label>– Core Charge (Two Nights Ago)</label>
-          <input type="number" />
+          <label>Digit 1 – Core Charge (Three Nights Ago)</label>
+          <input type="number" id="h1" />
+        </div>
+        <div>
+          <label>Digit 2 – Core Charge (Two Nights Ago)</label>
+          <input type="number" id="h2" />
         </div>
       </div>
     </div>
 
       
-    <div style="tdding:10px 20px; font-size:14px; border:none; border-radius:6px; background:#2f6fed; color:#fff; cursor:pointer;">Create Report</button>
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="generateReport()" style="padding:10px 20px; font-size:14px; border:none; border-radius:6px; background:#2f6fed; color:#fff; cursor:pointer;">Create Report</button>
     </div>
 
     <div id="report" class="row" style="margin-top:20px; display:none;">
