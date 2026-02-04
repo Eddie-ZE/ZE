@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dimplex QM Report Menu – User Input</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .panel {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 20px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .row {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .row h2 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .inputs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    label {
+      font-size: 13px;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 5px;
+      margin-top: 4px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 13px;
+      max-width: 120px;
+    }
+
+    input[type="number"] {
+      text-align: center;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #777;
+      margin-top: 6px;
+    }
+
+    .warning {
+      color: #b30000;
+      font-size: 12px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Dimplex QM – Report Menu Input</h1>
+
+  <div class="panel">
+
+    <!-- Row A -->
+    <div class="row">
+      <h2>Row A – System & Installer Settings</h2>
+      <div class="inputs">
+        <div>
+          <label>Digit 1 – Software Calculator</label>
+          <input type="number" />
+        </div>
+        <div>
+          <label>Digit 2 – Heater Size (5 = 1500W)</label>
+          <input type="number" />
+        </div>
+        <div>
+          <label>Digit 3 – Extra Charge (Installer Setting)</label>
+          <input type="number" />
+        </div>
+        <div>
+          <label>Digit 4 – Clock Calibration</label>
+          <input type="number" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Row B -->
+    <div class="row">
+      <h2>Row B – Core Charge Time</h2>
+      <div class="inputs">
+        <div>
+          <label>Core Charge Time Last Night (minutes)</label>
+          <input type="number" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Row C -->
+    <div class="row">
+      <h2>Row C – Room Temperature History</h2>
+      <div class="inputs">
+        <div>
+          <label>Digit 1 – Current Room Temperature (°C)</label>
+          <input type="number" step="0.1" />
+        </div>
+        <div>
+          <label>Digit 2 – Room Temp at 11:59 pm (°C)</label>
+          <input type="number" step="0.1" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Row D -->
+    <div class="row">
+      <h2>Row D – Comfort ON Hours (Next Day)</h2>
+      <div class="inputs">
+        <div>
+          <label>Total Comfort ON Hours Programmed</label>
+          <input type="number" />
+          <div class="warning">Recommended maximum: 14 hours</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row E -->
+    <div class="row">
+      <h2>Row E – Room Temperature Setpoints</h2>
+      <div class="inputs">
+        <div>
+          <label>Digit 1 – Current Room Temperature (°C)</label>
+          <input type="number" step="0.1" />
+        </div>
+        <div>
+          <label>Digit 2 – Room Temp Set at 11:59 pm (°C)</label>
+          <input type="number" step="0.1" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Row F -->
+    <div class="row">
+      <h2>Row F – Core Temperature</h2>
+      <div class="inputs">
+        <div>
+          <label>Digit 1 – Current Core Temperature</label>
+          <input type="number" />
+        </div>
+        <div>
+          <label>Digit 2 – Core Temp at 11:59 pm</label>
+          <input type="number" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Row G -->
+    <div class="row">
+      <h2>Row G – Not Used</h2>
+      <div class="note">This row is reserved and does not contain data.</div>
+    </div>
+
+    <!-- Row H -->
+    <div class="row">
+      <h2>Row H – Historic Core Charge</h2>
+      <div class="inputs">
+        <div>
+          <label>Digit 1 – Core Charge (Three Nights Ago)</label>
+          <input type="number" />
+        </div>
+        <div>
+          <label>Digit 2 – Core Charge (Two Nights Ago)</label>
+          <input type="number" />
+        </div>
+      </div>
+    </div>
+
+      
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="generateReport()" style="padding:10px 20px; font-size:14px; border:none; border-radius:6px; background:#2f6fed; color:#fff; cursor:pointer;">Create Report</button>
+    </div>
+
+    <div id="report" class="row" style="margin-top:20px; display:none;">
+      <h2>Report Explanation</h2>
+      <div id="reportContent" class="note"></div>
+    </div>
+
+  </div>
+
+<script>
+function generateReport() {
+  const report = document.getElementById('report');
+  const content = document.getElementById('reportContent');
+
+  content.innerHTML = `
+  <strong>Row A:</strong> Installer and system configuration. Heater size confirms installed wattage, while extra charge and clock calibration affect how aggressively the heater charges overnight.<br><br>
+
+  <strong>Row B:</strong> Total minutes the heater charged last night. Low values suggest mild weather or reduced demand; high values indicate higher heat requirement.<br><br>
+
+  <strong>Row C:</strong> Comparison between current room temperature and the temperature recorded at 11:59 pm. A large drop overnight can indicate heat loss or under-charging.<br><br>
+
+  <strong>Row D:</strong> Total comfort ON hours programmed for the next day. Exceeding 14 hours usually indicates the heater is compensating for insufficient stored heat.<br><br>
+
+  <strong>Row E:</strong> Active room temperature control. Shows whether the heater is maintaining set temperature or relying heavily on direct output.<br><br>
+
+  <strong>Row F:</strong> Core temperature status. Comparing current core temp with the 11:59 pm value shows how much stored heat has been used during the day.<br><br>
+
+  <strong>Row G:</strong> Not used on QM models.<br><br>
+
+  <strong>Row H:</strong> Historical core charge values from previous nights. Useful for spotting trends such as consistent under-charging or weather-related demand changes.
+  `;
+
+  report.style.display = 'block';
+}
+</script>
+
+</body>
+</html>
