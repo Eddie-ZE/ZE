@@ -2,166 +2,198 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Dimplex QM150 – Advanced Data Interpreter</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dimplex QM Report Menu – User Input</title>
   <style>
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f7fa;
-      margin: 0;
-      padding: 2rem;
-      color: #222;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      padding: 20px;
     }
 
     h1 {
-      margin-bottom: 0.2rem;
+      text-align: center;
+      margin-bottom: 30px;
     }
 
-    .subtitle {
-      color: #555;
-      margin-bottom: 2rem;
+    .panel {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 20px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    .row {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .row h2 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .inputs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
     }
 
     label {
-      display: block;
-      font-weight: 600;
-      margin-top: 1rem;
+      font-size: 13px;
+      color: #555;
     }
 
     input {
       width: 100%;
-      padding: 0.6rem;
-      margin-top: 0.3rem;
-      border-radius: 6px;
+      padding: 8px;
+      margin-top: 4px;
+      border-radius: 4px;
       border: 1px solid #ccc;
-      font-size: 1rem;
+      font-size: 14px;
     }
 
-    button {
-      margin-top: 1.5rem;
-      padding: 0.7rem 1.2rem;
-      border: none;
-      border-radius: 8px;
-      background: #2563eb;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
+    input[type="number"] {
+      text-align: center;
     }
 
-    button:hover {
-      background: #1e4ed8;
+    .note {
+      font-size: 12px;
+      color: #777;
+      margin-top: 6px;
     }
 
-    .output {
-      background: #f0f4ff;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-top: 1rem;
+    .warning {
+      color: #b30000;
+      font-size: 12px;
     }
 
-    .explain {
-      font-size: 0.95rem;
-      color: #444;
-      margin-top: 0.5rem;
-    }
-
-    footer {
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      color: #666;
-    }
   </style>
 </head>
-
 <body>
 
-  <h1>Dimplex QM150</h1>
-  <div class="subtitle">Advanced Data Interpreter & Explainer</div>
+  <h1>Dimplex QM – Report Menu Input</h1>
 
-  <div class="card">
-    <h2>Input Advanced Menu Values</h2>
+  <div class="panel">
 
-    <label>Total Energy Register (kWh)</label>
-    <input id="totalEnergy" type="number" step="0.1" placeholder="e.g. 1245.6" />
-
-    <label>Yesterday Energy Register (kWh)</label>
-    <input id="yesterdayEnergy" type="number" step="0.1" placeholder="e.g. 1237.9" />
-
-    <label>Charge Window Duration (hours)</label>
-    <input id="chargeHours" type="number" step="0.1" placeholder="e.g. 7" />
-
-    <label>Electricity Unit Cost (£/kWh)</label>
-    <input id="unitCost" type="number" step="0.01" placeholder="e.g. 0.30" />
-
-    <button onclick="calculate()">Calculate & Explain</button>
-  </div>
-
-  <div class="card">
-    <h2>Results</h2>
-    <div id="results" class="output">Enter values and press calculate.</div>
-  </div>
-
-  <div class="card">
-    <h2>What These Numbers Mean</h2>
-    <div class="explain">
-      <p><strong>Total Energy Register:</strong> The cumulative lifetime energy consumed by the heater. This never resets unless power is lost for a long period or the PCB is replaced.</p>
-
-      <p><strong>Yesterday Energy Register:</strong> The value recorded at the end of the previous day. Subtracting this from the current total gives an estimate of daily consumption.</p>
-
-      <p><strong>Charge Window Duration:</strong> How long the heater is allowed to charge (typically during off-peak hours). This affects the effective charging power.</p>
-
-      <p><strong>Why this matters:</strong> These heaters don’t show historical usage clearly. This page reconstructs daily kWh and cost so you can understand real behaviour rather than guess.</p>
+    <!-- Row A -->
+    <div class="row">
+      <h2>Row A – System & Installer Settings</h2>
+      <div class="inputs">
+        <div>
+          <label>Digit 1 – Software Calculator</label>
+          <input type="number" />
+        </div>
+        <div>
+          <label>Digit 2 – Heater Size (5 = 1500W)</label>
+          <input type="number" />
+        </div>
+        <div>
+          <label>Digit 3 – Extra Charge (Installer Setting)</label>
+          <input type="number" />
+        </div>
+        <div>
+          <label>Digit 4 – Clock Calibration</label>
+          <input type="number" />
+        </div>
+      </div>
     </div>
+
+    <!-- Row B -->
+    <div class="row">
+      <h2>Row B – Core Charge Time</h2>
+      <div class="inputs">
+        <div>
+          <label>Core Charge Time Last Night (minutes)</label>
+          <input type="number" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Row C -->
+    <div class="row">
+      <h2>Row C – Room Temperature History</h2>
+      <div class="inputs">
+        <div>
+          <label>Digit 1 – Current Room Temperature (°C)</label>
+          <input type="number" step="0.1" />
+        </div>
+        <div>
+          <label>Digit 2 – Room Temp at 11:59 pm (°C)</label>
+          <input type="number" step="0.1" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Row D -->
+    <div class="row">
+      <h2>Row D – Comfort ON Hours (Next Day)</h2>
+      <div class="inputs">
+        <div>
+          <label>Total Comfort ON Hours Programmed</label>
+          <input type="number" />
+          <div class="warning">Recommended maximum: 14 hours</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row E -->
+    <div class="row">
+      <h2>Row E – Room Temperature Setpoints</h2>
+      <div class="inputs">
+        <div>
+          <label>Digit 1 – Current Room Temperature (°C)</label>
+          <input type="number" step="0.1" />
+        </div>
+        <div>
+          <label>Digit 2 – Room Temp Set at 11:59 pm (°C)</label>
+          <input type="number" step="0.1" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Row F -->
+    <div class="row">
+      <h2>Row F – Core Temperature</h2>
+      <div class="inputs">
+        <div>
+          <label>Digit 1 – Current Core Temperature</label>
+          <input type="number" />
+        </div>
+        <div>
+          <label>Digit 2 – Core Temp at 11:59 pm</label>
+          <input type="number" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Row G -->
+    <div class="row">
+      <h2>Row G – Not Used</h2>
+      <div class="note">This row is reserved and does not contain data.</div>
+    </div>
+
+    <!-- Row H -->
+    <div class="row">
+      <h2>Row H – Historic Core Charge</h2>
+      <div class="inputs">
+        <div>
+          <label>Digit 1 – Core Charge (Three Nights Ago)</label>
+          <input type="number" />
+        </div>
+        <div>
+          <label>Digit 2 – Core Charge (Two Nights Ago)</label>
+          <input type="number" />
+        </div>
+      </div>
+    </div>
+
   </div>
-
-  <footer>
-    Built for Dimplex QM150 users · No tracking · No data stored
-  </footer>
-
-  <script>
-    function calculate() {
-      const total = parseFloat(document.getElementById("totalEnergy").value);
-      const yesterday = parseFloat(document.getElementById("yesterdayEnergy").value);
-      const hours = parseFloat(document.getElementById("chargeHours").value);
-      const cost = parseFloat(document.getElementById("unitCost").value);
-
-      if (isNaN(total) || isNaN(yesterday)) {
-        document.getElementById("results").innerHTML =
-          "Please enter at least the total and yesterday energy values.";
-        return;
-      }
-
-      const dailyUsage = total - yesterday;
-      const avgPower = hours ? dailyUsage / hours : null;
-      const dailyCost = cost ? dailyUsage * cost : null;
-
-      let html = `<p><strong>Estimated Daily Energy:</strong> ${dailyUsage.toFixed(2)} kWh</p>`;
-
-      if (avgPower !== null) {
-        html += `<p><strong>Average Charge Power:</strong> ${avgPower.toFixed(2)} kW</p>`;
-      }
-
-      if (dailyCost !== null) {
-        html += `<p><strong>Estimated Daily Cost:</strong> £${dailyCost.toFixed(2)}</p>`;
-      }
-
-      html += `<p class="explain">
-        This is an estimate based on register differences. Small errors are normal due to rounding
-        and internal control behaviour.
-      </p>`;
-
-      document.getElementById("results").innerHTML = html;
-    }
-  </script>
 
 </body>
 </html>
