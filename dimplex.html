@@ -11,9 +11,32 @@
       padding: 20px;
     }
 
+    .tabs {
+      max-width: 800px;
+      margin: 0 auto 15px auto;
+      display: flex;
+      gap: 8px;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #e9ecf1;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .tabs button.active {
+      background: #2f6fed;
+      color: #fff;
+      border-color: #2f6fed;
+    }
+
     h1 {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     .panel {
@@ -51,15 +74,12 @@
 
     input {
       width: 100%;
-      padding: 8px;
+      padding: 5px;
       margin-top: 4px;
       border-radius: 4px;
       border: 1px solid #ccc;
-      font-size: 14px;
-    }
-
-    input[type="number"] {
-      text-align: center;
+      font-size: 13px;
+      max-width: 120px;
     }
 
     .note {
@@ -73,9 +93,31 @@
       font-size: 12px;
     }
 
+    /* Mobile view overrides */
+    body.mobile .panel {
+      padding: 15px;
+    }
+
+    body.mobile .inputs {
+      grid-template-columns: 1fr;
+    }
+
+    body.mobile input {
+      max-width: 100%;
+      font-size: 16px;
+      padding: 10px;
+    }
+
+    body.mobile .row h2 {
+      font-size: 15px;
+    }
   </style>
 </head>
 <body>
+  <div class="tabs">
+    <button id="desktopTab" class="active" onclick="setView('desktop')">Desktop View</button>
+    <button id="mobileTab" onclick="setView('mobile')">Mobile View</button>
+  </div>
 
   <h1>Dimplex QM – Report Menu Input</h1>
 
@@ -193,7 +235,57 @@
       </div>
     </div>
 
+      
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="generateReport()" style="padding:10px 20px; font-size:14px; border:none; border-radius:6px; background:#2f6fed; color:#fff; cursor:pointer;">Create Report</button>
+    </div>
+
+    <div id="report" class="row" style="margin-top:20px; display:none;">
+      <h2>Report Explanation</h2>
+      <div id="reportContent" class="note"></div>
+    </div>
+
   </div>
+
+<script>
+function setView(view) {
+  document.body.classList.remove('mobile');
+  document.getElementById('desktopTab').classList.remove('active');
+  document.getElementById('mobileTab').classList.remove('active');
+
+  if (view === 'mobile') {
+    document.body.classList.add('mobile');
+    document.getElementById('mobileTab').classList.add('active');
+  } else {
+    document.getElementById('desktopTab').classList.add('active');
+  }
+}
+
+function generateReport() {
+  const report = document.getElementById('report');
+  const content = document.getElementById('reportContent');
+
+  content.innerHTML = `
+  <strong>Row A:</strong> Installer and system configuration. Heater size confirms installed wattage, while extra charge and clock calibration affect how aggressively the heater charges overnight.<br><br>
+
+  <strong>Row B:</strong> Total minutes the heater charged last night. Low values suggest mild weather or reduced demand; high values indicate higher heat requirement.<br><br>
+
+  <strong>Row C:</strong> Comparison between current room temperature and the temperature recorded at 11:59 pm. A large drop overnight can indicate heat loss or under-charging.<br><br>
+
+  <strong>Row D:</strong> Total comfort ON hours programmed for the next day. Exceeding 14 hours usually indicates the heater is compensating for insufficient stored heat.<br><br>
+
+  <strong>Row E:</strong> Active room temperature control. Shows whether the heater is maintaining set temperature or relying heavily on direct output.<br><br>
+
+  <strong>Row F:</strong> Core temperature status. Comparing current core temp with the 11:59 pm value shows how much stored heat has been used during the day.<br><br>
+
+  <strong>Row G:</strong> Not used on QM models.<br><br>
+
+  <strong>Row H:</strong> Historical core charge values from previous nights. Useful for spotting trends such as consistent under-charging or weather-related demand changes.
+  `;
+
+  report.style.display = 'block';
+}
+</script>
 
 </body>
 </html>
