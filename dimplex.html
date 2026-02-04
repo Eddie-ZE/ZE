@@ -253,13 +253,14 @@ function generateReport() {
   </ul>
 
   <h3>What This Means</h3>
+
   <p><strong>Charging behaviour:</strong> The heater charged for <strong>${v('b1')} minutes</strong> last night. Comparing this with historic values (${v('h1')}, ${v('h2')}) helps identify whether demand is increasing or if the heater is being limited.</p>
 
   <p><strong>Heat retention:</strong> Room temperature dropped from <strong>${v('c2')} °C</strong> at 23:59 to <strong>${v('c1')} °C</strong>. A large drop overnight can point to high heat loss or insufficient stored heat.</p>
 
-  <p><strong>Comfort usage:</strong> ${v('d1')} comfort hours are programmed. Values above 14 hours usually mean the heater is compensating with direct output rather than stored heat.</p>
+  <p><strong>Comfort usage (Row D):</strong> The heater is programmed for <strong>${v('d1')} comfort ON hours</strong> tomorrow. Values above <strong>14 hours</strong> usually indicate the heater is relying heavily on direct output to compensate for insufficient stored heat.</p>
 
-  <p><strong>Core performance:</strong> Core temperature fell from <strong>${v('f2')}</strong> to <strong>${v('f1')}</strong> during the day, showing how much stored energy was actually used.</p>
+  <p><strong>Core performance:</strong> Core temperature fell from <strong>${v('f2')}</strong> to <strong>${v('f1')}</strong> during the day, showing how much stored energy was actually used.</p> Core temperature fell from <strong>${v('f2')}</strong> to <strong>${v('f1')}</strong> during the day, showing how much stored energy was actually used.</p>
 
   <p><strong>Overall:</strong> By combining charging time, room temperature change, and comfort usage, you can judge whether the heater is correctly sized, correctly programmed, or struggling due to building heat loss.</p>
   `;
