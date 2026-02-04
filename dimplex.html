@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dimplex QM150 – Advanced Data Interpreter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 2rem;
+      color: #222;
+    }
+
+    h1 {
+      margin-bottom: 0.2rem;
+    }
+
+    .subtitle {
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1e4ed8;
+    }
+
+    .output {
+      background: #f0f4ff;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+
+    .explain {
+      font-size: 0.95rem;
+      color: #444;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Dimplex QM150</h1>
+  <div class="subtitle">Advanced Data Interpreter & Explainer</div>
+
+  <div class="card">
+    <h2>Input Advanced Menu Values</h2>
+
+    <label>Total Energy Register (kWh)</label>
+    <input id="totalEnergy" type="number" step="0.1" placeholder="e.g. 1245.6" />
+
+    <label>Yesterday Energy Register (kWh)</label>
+    <input id="yesterdayEnergy" type="number" step="0.1" placeholder="e.g. 1237.9" />
+
+    <label>Charge Window Duration (hours)</label>
+    <input id="chargeHours" type="number" step="0.1" placeholder="e.g. 7" />
+
+    <label>Electricity Unit Cost (£/kWh)</label>
+    <input id="unitCost" type="number" step="0.01" placeholder="e.g. 0.30" />
+
+    <button onclick="calculate()">Calculate & Explain</button>
+  </div>
+
+  <div class="card">
+    <h2>Results</h2>
+    <div id="results" class="output">Enter values and press calculate.</div>
+  </div>
+
+  <div class="card">
+    <h2>What These Numbers Mean</h2>
+    <div class="explain">
+      <p><strong>Total Energy Register:</strong> The cumulative lifetime energy consumed by the heater. This never resets unless power is lost for a long period or the PCB is replaced.</p>
+
+      <p><strong>Yesterday Energy Register:</strong> The value recorded at the end of the previous day. Subtracting this from the current total gives an estimate of daily consumption.</p>
+
+      <p><strong>Charge Window Duration:</strong> How long the heater is allowed to charge (typically during off-peak hours). This affects the effective charging power.</p>
+
+      <p><strong>Why this matters:</strong> These heaters don’t show historical usage clearly. This page reconstructs daily kWh and cost so you can understand real behaviour rather than guess.</p>
+    </div>
+  </div>
+
+  <footer>
+    Built for Dimplex QM150 users · No tracking · No data stored
+  </footer>
+
+  <script>
+    function calculate() {
+      const total = parseFloat(document.getElementById("totalEnergy").value);
+      const yesterday = parseFloat(document.getElementById("yesterdayEnergy").value);
+      const hours = parseFloat(document.getElementById("chargeHours").value);
+      const cost = parseFloat(document.getElementById("unitCost").value);
+
+      if (isNaN(total) || isNaN(yesterday)) {
+        document.getElementById("results").innerHTML =
+          "Please enter at least the total and yesterday energy values.";
+        return;
+      }
+
+      const dailyUsage = total - yesterday;
+      const avgPower = hours ? dailyUsage / hours : null;
+      const dailyCost = cost ? dailyUsage * cost : null;
+
+      let html = `<p><strong>Estimated Daily Energy:</strong> ${dailyUsage.toFixed(2)} kWh</p>`;
+
+      if (avgPower !== null) {
+        html += `<p><strong>Average Charge Power:</strong> ${avgPower.toFixed(2)} kW</p>`;
+      }
+
+      if (dailyCost !== null) {
+        html += `<p><strong>Estimated Daily Cost:</strong> £${dailyCost.toFixed(2)}</p>`;
+      }
+
+      html += `<p class="explain">
+        This is an estimate based on register differences. Small errors are normal due to rounding
+        and internal control behaviour.
+      </p>`;
+
+      document.getElementById("results").innerHTML = html;
+    }
+  </script>
+
+</body>
+</html>
