@@ -1,286 +1,1263 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZE Electrical | Electrician in Brae, Shetland</title>
-<meta name="description" content="ZE Electrical – electrical contractor based in Brae, Shetland. Domestic and commercial installation, maintenance and testing.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#111111;
-    --ink-2:#1c1c1c;
-    --paper:#ffffff;
-    --mist:#f4f4f2;
-    --line:#e3e3df;
-    --muted:#5b5b58;
-    --volt:#f5b700;
-    --volt-dark:#c99600;
-    --radius:10px;
-    --max:1100px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
-  img,svg{display:block;max-width:100%}
-  a{color:inherit}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
-  h1,h2,h3{font-family:"Barlow Condensed",sans-serif;font-weight:700;letter-spacing:.02em;line-height:1.05;text-transform:uppercase}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  /* Header */
-  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-  .brand svg{width:38px;height:auto}
-  .brand span{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:24px;letter-spacing:.06em}
-  .nav ul{display:flex;gap:28px;list-style:none;align-items:center}
-  .nav ul a{text-decoration:none;font-weight:500;font-size:15px}
-  .nav ul a:hover{color:var(--volt-dark)}
-  .btn{display:inline-block;background:var(--volt);color:var(--ink);font-weight:600;text-decoration:none;padding:12px 22px;border-radius:999px;border:0;cursor:pointer;font-size:15px;transition:background .2s}
-  .btn:hover{background:var(--volt-dark)}
-  .btn.ghost{background:transparent;border:2px solid currentColor}
-  .btn.ghost:hover{background:rgba(255,255,255,.1)}
-  .menu-toggle{display:none;background:none;border:0;font-size:26px;cursor:pointer}
+    <title>ZE Electrical | Electrical Services in Shetland</title>
 
-  /* Hero */
-  .hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
-  .hero::after{content:"";position:absolute;right:-120px;top:-60px;width:420px;height:420px;border:60px solid var(--volt);border-radius:50%;opacity:.12}
-  .hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;padding-top:90px;padding-bottom:90px;position:relative;z-index:1}
-  .eyebrow{color:var(--volt);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:13px;margin-bottom:14px}
-  .hero h1{font-size:clamp(44px,7vw,76px);margin-bottom:20px}
-  .hero h1 em{font-style:normal;color:var(--volt)}
-  .hero p{color:#cfcfcb;max-width:520px;margin-bottom:30px;font-size:18px}
-  .hero .actions{display:flex;gap:14px;flex-wrap:wrap}
-.hero-logo{
-    background:transparent;
-    border-radius:0;
-    padding:0;
-    max-width:320px;
-    justify-self:end;
-    box-shadow:none;
-}
-  /* Sections */
-  section{padding:90px 0}
-  .section-head{max-width:640px;margin-bottom:46px}
-  .section-head h2{font-size:clamp(34px,5vw,48px);margin-bottom:12px}
-  .section-head p{color:var(--muted)}
+    <meta name="description" content="ZE Electrical provides professional electrical services in Shetland, including domestic, commercial and industrial electrical work. Based in Brae, Shetland.">
 
-  .services{background:var(--mist)}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:transform .2s,box-shadow .2s}
-  .card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.07)}
-  .card .icon{width:46px;height:46px;border-radius:10px;background:var(--ink);color:var(--volt);display:grid;place-items:center;margin-bottom:18px}
-  .card .icon svg{width:24px;height:24px}
-  .card h3{font-size:24px;margin-bottom:8px}
-  .card p{color:var(--muted);font-size:15.5px}
+    <meta name="keywords" content="electrician Shetland, electrical services Shetland, electrician Brae, domestic electrician, commercial electrician, industrial electrician">
 
-  .about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  .about h2{font-size:clamp(34px,5vw,48px);margin-bottom:18px}
-  .about p{color:var(--muted);margin-bottom:16px}
-  .points{list-style:none;display:grid;gap:14px}
-  .points li{display:flex;gap:14px;align-items:flex-start;padding:18px;border:1px solid var(--line);border-radius:var(--radius)}
-  .points li b{display:block}
-  .points li span{color:var(--muted);font-size:15px}
-  .bolt{flex:none;width:28px;height:28px;border-radius:50%;background:var(--volt);display:grid;place-items:center}
-  .bolt svg{width:14px;height:14px}
+    <meta name="author" content="ZE Electrical">
+    <meta name="theme-color" content="#101820">
 
-  .area{background:var(--ink);color:#fff;text-align:center;padding:70px 0}
-  .area h2{font-size:clamp(30px,4.5vw,44px);margin-bottom:12px}
-  .area p{color:#cfcfcb;max-width:620px;margin:0 auto}
-  .area strong{color:var(--volt)}
+    <link rel="canonical" href="https://www.ze-electrical.co.uk/">
 
-  .contact .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:50px}
-  .contact h2{font-size:clamp(34px,5vw,48px);margin-bottom:14px}
-  .contact-info p{color:var(--muted);margin-bottom:26px}
-  .info-row{display:flex;gap:14px;align-items:center;margin-bottom:16px}
-  .info-row .icon{width:42px;height:42px;border-radius:10px;background:var(--mist);display:grid;place-items:center;flex:none}
-  .info-row .icon svg{width:20px;height:20px}
-  .info-row a{text-decoration:none;font-weight:600}
-  .info-row a:hover{color:var(--volt-dark)}
-  form{background:var(--mist);border-radius:14px;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  form .full{grid-column:1/-1}
-  label{font-size:13px;font-weight:600;display:block;margin-bottom:6px}
-  input,textarea,select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:16px;background:#fff}
-  input:focus,textarea:focus,select:focus{outline:2px solid var(--volt);border-color:var(--volt)}
-  textarea{min-height:140px;resize:vertical}
-  .form-note{font-size:13px;color:var(--muted)}
+    <style>
+        :root {
+            --background: #101820;
+            --background-light: #17232d;
+            --surface: #1d2b36;
+            --accent: #e5a832;
+            --accent-hover: #f2bb4e;
+            --text: #f5f7f8;
+            --muted: #aebbc5;
+            --border: rgba(255,255,255,0.12);
+            --max-width: 1200px;
+        }
 
-  footer{border-top:1px solid var(--line);padding:30px 0;font-size:14px;color:var(--muted)}
-  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  @media (max-width:860px){
-    .nav ul{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;flex-direction:column;gap:0;border-bottom:1px solid var(--line)}
-    .nav ul.open{display:flex}
-    .nav ul li{width:100%;text-align:center}
-    .nav ul a{display:block;padding:14px}
-    .nav ul .btn{margin:10px 0 16px}
-    .menu-toggle{display:block}
-    .hero .wrap,.about .wrap,.contact .wrap{grid-template-columns:1fr}
-    .hero-logo{justify-self:start;max-width:220px;padding:28px 22px 22px}
-    .grid{grid-template-columns:1fr}
-    section{padding:64px 0}
-    form{grid-template-columns:1fr;padding:22px}
-  }
-</style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            width: min(100% - 40px, var(--max-width));
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(16,24,32,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .header-logo img {
+            height: 52px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        nav a {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .nav-contact {
+            background: var(--accent);
+            color: #101820 !important;
+            padding: 11px 20px;
+            border-radius: 5px;
+        }
+
+        .nav-contact:hover {
+            background: var(--accent-hover);
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 0;
+            background: transparent;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(10,17,23,0.96) 0%,
+                    rgba(10,17,23,0.88) 48%,
+                    rgba(10,17,23,0.45) 100%
+                ),
+                url("hero-background.jpg") center/cover no-repeat,
+                var(--background-light);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 60px;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.08;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+            max-width: 700px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-description {
+            color: #d0d8de;
+            font-size: 18px;
+            max-width: 590px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .button-primary {
+            background: var(--accent);
+            color: #101820;
+        }
+
+        .button-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .button-outline {
+            border: 1px solid rgba(255,255,255,0.45);
+            color: white;
+        }
+
+        .button-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .hero-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .hero-logo img {
+            width: 100%;
+            max-width: 390px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* INTRO STRIP */
+
+        .intro-strip {
+            background: var(--accent);
+            color: #101820;
+            padding: 22px 0;
+        }
+
+        .intro-strip-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .intro-strip strong {
+            font-size: 17px;
+        }
+
+        .intro-strip span {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-heading {
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+
+        .section-heading .eyebrow {
+            margin-bottom: 14px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(32px, 4vw, 46px);
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        /* SERVICES */
+
+        .services {
+            background: var(--background);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(229,168,50,0.12);
+            color: var(--accent);
+            border-radius: 7px;
+            font-size: 25px;
+            margin-bottom: 23px;
+        }
+
+        .service-card h3 {
+            font-size: 21px;
+            margin-bottom: 13px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: var(--background-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 75px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: clamp(32px, 4vw, 46px);
+            line-height: 1.15;
+            margin-bottom: 25px;
+        }
+
+        .about-content p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .about-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 17px;
+            margin-top: 30px;
+        }
+
+        .about-point {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .about-point span {
+            color: var(--accent);
+            font-size: 20px;
+        }
+
+        .about-highlight {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 42px;
+        }
+
+        .about-highlight .large-text {
+            font-size: 26px;
+            line-height: 1.3;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .about-highlight p {
+            color: var(--muted);
+        }
+
+        .about-highlight .accent-line {
+            width: 55px;
+            height: 4px;
+            background: var(--accent);
+            margin-bottom: 25px;
+        }
+
+        /* AREA */
+
+        .area {
+            background: var(--background);
+            text-align: center;
+        }
+
+        .area .section-heading {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .area-box {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 45px;
+        }
+
+        .area-box h3 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .area-box p {
+            color: var(--muted);
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: var(--background-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 65px;
+        }
+
+        .contact-info h2 {
+            font-size: clamp(32px, 4vw, 46px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .contact-info > p {
+            color: var(--muted);
+            margin-bottom: 35px;
+        }
+
+        .contact-detail {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+
+        .contact-detail-icon {
+            width: 43px;
+            height: 43px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(229,168,50,0.12);
+            color: var(--accent);
+            border-radius: 6px;
+            font-size: 19px;
+        }
+
+        .contact-detail strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .contact-detail p,
+        .contact-detail a {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .contact-detail a:hover {
+            color: var(--accent);
+        }
+
+        .contact-form {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 35px;
+        }
+
+        .contact-form h3 {
+            font-size: 23px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: #121c25;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 14px;
+            color: white;
+            font-family: inherit;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            min-height: 125px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            border: 0;
+            cursor: pointer;
+            width: 100%;
+            font-family: inherit;
+        }
+
+        .form-note {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 13px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #0b1117;
+            padding: 35px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer-copy {
+            color: var(--muted);
+            font-size: 13px;
+            text-align: right;
+        }
+
+        .footer-copy a {
+            color: var(--accent);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 82px;
+                left: 0;
+                right: 0;
+                background: #101820;
+                padding: 25px 25px 30px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 20px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                font-size: 16px;
+            }
+
+            .nav-contact {
+                text-align: center;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 45px;
+                padding-top: 75px;
+                padding-bottom: 75px;
+            }
+
+            .hero-logo {
+                justify-content: flex-start;
+            }
+
+            .hero-logo img {
+                max-width: 260px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .container {
+                width: min(100% - 32px, var(--max-width));
+            }
+
+            .header-inner {
+                min-height: 72px;
+            }
+
+            .header-logo img {
+                height: 43px;
+            }
+
+            nav {
+                top: 72px;
+            }
+
+            .hero-content {
+                padding-top: 65px;
+                padding-bottom: 65px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+                letter-spacing: -1px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+            .intro-strip-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 27px;
+            }
+
+            .about-points {
+                grid-template-columns: 1fr;
+            }
+
+            .about-highlight,
+            .area-box,
+            .contact-form {
+                padding: 27px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-copy {
+                text-align: left;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<header>
-  <div class="wrap nav">
-    <a href="#top" class="brand" aria-label="ZE Electrical home">
-      <img src="logo-header.png" alt="ZE Electrical" style="height:48px;width:auto">
-    </a>
-    <button class="menu-toggle" aria-label="Open menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
-    <ul id="menu">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#area">Area</a></li>
-      <li><a href="#contact" class="btn">Contact</a></li>
-    </ul>
-  </div>
-</header>
+    <!-- HEADER -->
 
-<main id="top">
-  <section class="hero">
-    <div class="wrap">
-      <div>
-        <p class="eyebrow">Brae · Shetland</p>
-        <h1>Electrical contractor <em>in Shetland</em></h1>
-        <p>Domestic and commercial electrical installation, maintenance and testing throughout Shetland.</p>
-        <div class="actions">
-          <a href="#contact" class="btn">Request a quote</a>
-          <a href="#services" class="btn ghost">Services</a>
-        </div>
-      </div>
-      <div class="hero-logo">
-        <img src="logo-white.png" alt="ZE Electrical logo" style="width:100%;height:auto">
-      </div>
-    </div>
-  </section>
+    <header>
+        <div class="container header-inner">
 
-  <section class="services" id="services">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Services</h2>
-        <p>Domestic and commercial work, from minor alterations to complete installations.</p>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></div>
-          <h3>Domestic installations</h3>
-          <p>New builds, extensions, rewires and consumer unit replacements.</p>
-        </div>
-        <div class="card">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M8 7V3h8v4"/></svg></div>
-          <h3>Commercial work</h3>
-          <p>Installation and maintenance for shops, offices, workshops and industrial units.</p>
-        </div>
-        <div class="card">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></div>
-          <h3>Lighting</h3>
-          <p>Internal and external lighting, including LED replacements.</p>
-        </div>
-        <div class="card">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></div>
-          <h3>Testing &amp; inspection</h3>
-          <p>Electrical Installation Condition Reports (EICR) for homeowners and landlords.</p>
-        </div>
-        <div class="card">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
-          <h3>Fault finding</h3>
-          <p>Diagnosis and repair of electrical faults.</p>
-        </div>
-        <div class="card">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M10 8h4M12 12v5"/></svg></div>
-          <h3>EV chargers</h3>
-          <p>Domestic and workplace charge point installation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+            <a href="#home" class="header-logo" aria-label="ZE Electrical home">
+                <img src="logo-header.png" alt="ZE Electrical">
+            </a>
 
-  <section class="about" id="about">
-    <div class="wrap">
-      <div>
-        <h2>About</h2>
-        <p>ZE Electrical is an electrical contractor based in Brae, carrying out domestic and commercial work across Shetland.</p>
-        <a href="#contact" class="btn" style="margin-top:10px">Contact</a>
-      </div>
-      <ul class="points">
-        <li><span class="bolt"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z" fill="#111"/></svg></span><div><b>Written quotations</b><span>Provided before work begins.</span></div></li>
-        <li><span class="bolt"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z" fill="#111"/></svg></span><div><b>Testing and certification</b><span>All installations tested and certified on completion.</span></div></li>
-        <li><span class="bolt"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z" fill="#111"/></svg></span><div><b>Current regulations</b><span>Work carried out to BS 7671.</span></div></li>
-      </ul>
-    </div>
-  </section>
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+                ☰
+            </button>
 
-  <section class="area" id="area">
-    <div class="wrap">
-      <h2>Area covered</h2>
-      <p>Based in <strong>Brae</strong>, working throughout Shetland.</p>
-    </div>
-  </section>
+            <nav id="mainNav">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#area">Areas Covered</a>
+                <a href="#contact" class="nav-contact">Get in Touch</a>
+            </nav>
 
-  <section class="contact" id="contact">
-    <div class="wrap">
-      <div class="contact-info">
-        <h2>Contact</h2>
-        <p>For enquiries or quotations, use the form or email directly.</p>
-        <div class="info-row">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
-          <a href="mailto:Eddie@ze-electrical.co.uk">Eddie@ze-electrical.co.uk</a>
         </div>
-        <div class="info-row">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-          <span>Brae, Shetland ZE2 9QG</span>
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero" id="home">
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <div class="eyebrow">Electrical Services · Shetland</div>
+
+                    <h1>
+                        Professional electrical services.
+                        <span>Done properly.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Reliable electrical services for domestic, commercial and industrial customers throughout Shetland.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#contact" class="button button-primary">
+                            Get in Touch
+                        </a>
+
+                        <a href="#services" class="button button-outline">
+                            View Services
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="hero-logo">
+                    <img src="logo-white.png" alt="ZE Electrical logo">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INTRO STRIP -->
+
+        <div class="intro-strip">
+            <div class="container intro-strip-inner">
+
+                <strong>ZE Electrical</strong>
+
+                <span>Serving domestic, commercial and industrial customers across Shetland.</span>
+
+            </div>
         </div>
-      </div>
 
-      <form id="quoteForm">
-        <div><label for="fname">First name</label><input id="fname" name="fname" required></div>
-        <div><label for="lname">Last name</label><input id="lname" name="lname"></div>
-        <div><label for="email">Email</label><input id="email" name="email" type="email" required></div>
-        <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel"></div>
-        <div class="full">
-          <label for="type">Type of work</label>
-          <select id="type" name="type">
-            <option>Domestic installation</option>
-            <option>Commercial work</option>
-            <option>Lighting</option>
-            <option>Testing &amp; inspection</option>
-            <option>Fault finding</option>
-            <option>EV charger</option>
-            <option>Something else</option>
-          </select>
+
+        <!-- SERVICES -->
+
+        <section class="services" id="services">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="eyebrow">What We Do</div>
+
+                    <h2>Electrical services you can rely on.</h2>
+
+                    <p>
+                        From small electrical jobs to larger installations and maintenance work, ZE Electrical provides a professional and dependable service.
+                    </p>
+
+                </div>
+
+
+                <div class="services-grid">
+
+                    <div class="service-card">
+
+                        <div class="service-icon">⌂</div>
+
+                        <h3>Domestic Electrical</h3>
+
+                        <p>
+                            Electrical installations, alterations, repairs, upgrades and maintenance for homes and residential properties.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">▦</div>
+
+                        <h3>Commercial Electrical</h3>
+
+                        <p>
+                            Electrical services for commercial premises, offices, workshops, retail units and business facilities.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">⚡</div>
+
+                        <h3>Industrial Electrical</h3>
+
+                        <p>
+                            Electrical installation, maintenance and fault-finding support for industrial environments and equipment.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">⌁</div>
+
+                        <h3>Fault Finding & Repairs</h3>
+
+                        <p>
+                            Identifying electrical faults and carrying out repairs to help keep your electrical systems safe and operating correctly.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">◉</div>
+
+                        <h3>Lighting & Upgrades</h3>
+
+                        <p>
+                            Lighting installations, replacements and upgrades to improve the functionality and appearance of your property.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">✓</div>
+
+                        <h3>Electrical Maintenance</h3>
+
+                        <p>
+                            Planned and reactive maintenance to help maintain the safety, reliability and performance of electrical installations.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="about" id="about">
+
+            <div class="container about-grid">
+
+                <div class="about-content">
+
+                    <div class="eyebrow">About ZE Electrical</div>
+
+                    <h2>Experience, reliability and attention to detail.</h2>
+
+                    <p>
+                        Based in Brae, ZE Electrical provides electrical services throughout Shetland.
+                    </p>
+
+                    <p>
+                        With extensive experience across domestic, commercial and industrial environments, the focus is on delivering quality workmanship, practical solutions and a professional service from start to finish.
+                    </p>
+
+                    <p>
+                        Whether it's a small repair, an installation or ongoing maintenance, every job receives the same attention to detail.
+                    </p>
+
+                    <div class="about-points">
+
+                        <div class="about-point">
+                            <span>✓</span>
+                            Professional service
+                        </div>
+
+                        <div class="about-point">
+                            <span>✓</span>
+                            Reliable workmanship
+                        </div>
+
+                        <div class="about-point">
+                            <span>✓</span>
+                            Domestic & commercial
+                        </div>
+
+                        <div class="about-point">
+                            <span>✓</span>
+                            Local Shetland business
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-highlight">
+
+                    <div class="accent-line"></div>
+
+                    <div class="large-text">
+                        Electrical work carried out with safety, quality and reliability at the forefront.
+                    </div>
+
+                    <p>
+                        Straightforward advice, professional workmanship and a dependable service for customers across Shetland.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AREAS COVERED -->
+
+        <section class="area" id="area">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="eyebrow">Where We Work</div>
+
+                    <h2>Based in Shetland. Working throughout the islands.</h2>
+
+                    <p>
+                        ZE Electrical is based in Brae and provides electrical services across Shetland.
+                    </p>
+
+                </div>
+
+
+                <div class="area-box">
+
+                    <h3>Local knowledge. Local service.</h3>
+
+                    <p>
+                        From the North Mainland to Lerwick and surrounding areas, get in touch to discuss your electrical requirements and availability.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section class="contact" id="contact">
+
+            <div class="container contact-grid">
+
+                <div class="contact-info">
+
+                    <div class="eyebrow">Get in Touch</div>
+
+                    <h2>Have a job in mind?</h2>
+
+                    <p>
+                        Whether you need electrical work carried out, have a fault that needs investigating or simply want to discuss a project, get in touch.
+                    </p>
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-detail-icon">✉</div>
+
+                        <div>
+                            <strong>Email</strong>
+                            <a href="mailto:Eddie@ze-electrical.co.uk">
+                                Eddie@ze-electrical.co.uk
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-detail-icon">⌖</div>
+
+                        <div>
+                            <strong>Location</strong>
+                            <p>Brae, Shetland ZE2 9QG</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-detail-icon">⌂</div>
+
+                        <div>
+                            <strong>Service Area</strong>
+                            <p>Shetland Islands</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-form">
+
+                    <h3>Send an enquiry</h3>
+
+                    <form id="contactForm">
+
+                        <div class="form-group">
+
+                            <label for="name">Your Name</label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">Email Address</label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">Telephone Number</label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter your telephone number"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="message">How Can We Help?</label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Tell us a little about the work you require..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <button type="submit" class="button button-primary">
+                            Send Enquiry
+                        </button>
+
+                        <p class="form-note">
+                            This form will open your email application with your enquiry ready to send.
+                        </p>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container footer-inner">
+
+            <a href="#home" class="footer-logo">
+                <img src="logo-header.png" alt="ZE Electrical">
+            </a>
+
+            <div class="footer-copy">
+
+                <p>
+                    © <span id="year"></span> ZE Electrical. All rights reserved.
+                </p>
+
+                <p>
+                    Brae, Shetland ·
+                    <a href="mailto:Eddie@ze-electrical.co.uk">Get in touch</a>
+                </p>
+
+            </div>
+
         </div>
-        <div class="full"><label for="msg">Details</label><textarea id="msg" name="msg"></textarea></div>
-        <div class="full"><button type="submit" class="btn">Send enquiry</button></div>
-        <p class="full form-note">This opens your email app with your details filled in.</p>
-      </form>
-    </div>
-  </section>
-</main>
 
-<footer>
-  <div class="wrap">
-    <span>© <span id="yr"></span> ZE Electrical · Brae, Shetland</span>
-    <a href="mailto:Eddie@ze-electrical.co.uk">Eddie@ze-electrical.co.uk</a>
-  </div>
-</footer>
+    </footer>
 
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-  document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => document.getElementById('menu').classList.remove('open')));
-  document.getElementById('quoteForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const f = this;
-    const name = (f.fname.value + ' ' + f.lname.value).trim();
-    const subject = 'Quote request: ' + f.type.value + ' (' + name + ')';
-    const body = 'Name: ' + name + '\nEmail: ' + f.email.value + '\nPhone: ' + f.phone.value +
-                 '\nType of work: ' + f.type.value + '\n\n' + f.msg.value;
-    window.location.href = 'mailto:Eddie@ze-electrical.co.uk?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-  });
-</script>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // Mobile navigation
+
+        const menuToggle = document.getElementById("menuToggle");
+        const mainNav = document.getElementById("mainNav");
+
+        menuToggle.addEventListener("click", function () {
+
+            const isOpen = mainNav.classList.toggle("active");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+
+            menuToggle.innerHTML = isOpen ? "✕" : "☰";
+
+        });
+
+
+        // Close mobile menu when a link is selected
+
+        document.querySelectorAll("#mainNav a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                mainNav.classList.remove("active");
+
+                menuToggle.setAttribute("aria-expanded", "false");
+
+                menuToggle.innerHTML = "☰";
+
+            });
+
+        });
+
+
+        // Automatically update copyright year
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+
+        // Contact form
+
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+
+            const email = document.getElementById("email").value.trim();
+
+            const phone = document.getElementById("phone").value.trim();
+
+            const message = document.getElementById("message").value.trim();
+
+            const subject = encodeURIComponent("Website Enquiry - ZE Electrical");
+
+            const body = encodeURIComponent(
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n" +
+                "Telephone: " + phone + "\n\n" +
+                "Enquiry:\n" + message
+            );
+
+            window.location.href =
+                "mailto:Eddie@ze-electrical.co.uk?subject=" +
+                subject +
+                "&body=" +
+                body;
+
+        });
+
+    </script>
+
 </body>
 </html>
